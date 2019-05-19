@@ -1,0 +1,26 @@
+ 
+
+private String email_pattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
+
+
+
+
+
+private void checkEmailAndPasswordPattern() {
+
+        Drawable customErrorIcon=getResources().getDrawable(R.drawable.error_icon);
+        customErrorIcon.setBounds(0,0,customErrorIcon.getIntrinsicWidth(),customErrorIcon.getIntrinsicHeight());
+
+        if (email.getText().toString().matches(email_pattern)) {
+            if (password.getText().toString().equals(confirm_password.getText().toString())) {
+                CreateUser();
+            } else {
+                confirm_password.setError("Confirm password does not matches with password",customErrorIcon);
+                confirm_password.requestFocus();
+            }
+        } else {
+            email.setError("Email is not Correct",customErrorIcon);
+            email.requestFocus();
+
+        }
+    }

@@ -1,0 +1,25 @@
+CharSequence option[] = new CharSequence[]{"Open Profile", "Send Message"};
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                builder.setTitle("Select Options");
+                                builder.setIcon(R.drawable.coffee);
+                                builder.setItems(option, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int position) {
+
+                                        if (position == 0) {
+                                            Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                                            intent.putExtra("ref", list_user_id);
+                                            startActivity(intent);
+
+                                        } else if (position == 1) {
+                                            Intent intent = new Intent(getActivity(), ChatActivity.class);
+                                            startActivity(intent);
+
+                                        } else {
+                                            Toast.makeText(getActivity(), "MORE OPTIONS WILL BE ADDED LATER", Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                });
+
+                                builder.show();

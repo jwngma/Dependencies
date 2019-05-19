@@ -1,0 +1,13 @@
+ private void initToolbar() {
+        mtoolbar = findViewById(R.id.chat_toolbar);
+        setSupportActionBar(mtoolbar);
+
+        ActionBar actionBar= getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        LayoutInflater inflater=(LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View action_bar_view=inflater.inflate(R.layout.custom_chat_actionbar,null);
+
+        actionBar.setCustomView(action_bar_view);
+    }

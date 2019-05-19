@@ -1,0 +1,28 @@
+boolean isWhatsappInstalled = whatsappInstalledOrNot("com.whatsapp");
+        if (isWhatsappInstalled) {
+            Uri uri = Uri.parse("smsto:" + "98*********7")
+            Intent sendIntent = new Intent(Intent.ACTION_SENDTO, uri);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Hai Good Morning");
+            sendIntent.setType("text/plain");
+            sendIntent.setPackage("com.whatsapp");
+            startActivity(sendIntent);
+        } else {
+            Toast.makeText(this, "WhatsApp not Installed",
+                    Toast.LENGTH_SHORT).show();
+            Uri uri = Uri.parse("market://details?id=com.whatsapp");
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(goToMarket);
+
+        }
+
+private boolean whatsappInstalledOrNot(String uri) {
+    PackageManager pm = getPackageManager();
+    boolean app_installed = false;
+    try {
+        pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+        app_installed = true;
+    } catch (PackageManager.NameNotFoundException e) {
+        app_installed = false;
+    }
+    return app_installed;
+}

@@ -1,0 +1,8 @@
+Intent shareintent= new Intent(Intent.ACTION_SEND);
+                        shareintent.setType("text/plain");
+                        String shareSub=" Your Sub Here";
+                        String shareBody=" Your sms will appear here";
+                        shareintent.putExtra(Intent.EXTRA_SUBJECT,shareSub);
+                        shareintent.putExtra(Intent.EXTRA_TEXT,shareBody);
+                        shareintent.putExtra(Intent.EXTRA_EMAIL,shareBody);
+                        startActivity(Intent.createChooser(shareintent,"Share Using"));

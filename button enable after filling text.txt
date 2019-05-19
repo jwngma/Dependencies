@@ -1,0 +1,44 @@
+ 
+
+///////// this is to enable the button only if all the edit text are filled
+
+email.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                checkInputs();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
+private void checkInputs() {
+        if (!TextUtils.isEmpty(email.getText())) {
+            if (!TextUtils.isEmpty(fullname.getText())) {
+                if (!TextUtils.isEmpty(password.getText())) {
+                    if (!TextUtils.isEmpty(confirm_password.getText())) {
+                        signUpBtn.setEnabled(true);
+                        signUpBtn.setTextColor(Color.WHITE);
+                    } else {
+                        signUpBtn.setEnabled(false);
+                    }
+                } else {
+                    signUpBtn.setEnabled(false);
+                }
+            } else {
+                signUpBtn.setEnabled(false);
+            }
+        } else {
+            signUpBtn.setEnabled(false);
+        }
+    }

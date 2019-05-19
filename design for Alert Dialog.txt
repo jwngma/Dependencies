@@ -1,0 +1,39 @@
+
+//                        builder = new AlertDialog.Builder(MainActivity.this);
+//                        builder.setTitle("You cant Spin !");
+//                        builder.setMessage("Your have less than 5 charge point. Watch some Ads to earn spin point");
+//                        builder.setPositiveButton("Watch", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                showRewardVideo();
+//                            }
+//                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.cancel();
+//                            }
+//                        });
+//                        AlertDialog alertDialog = builder.create();
+//                        alertDialog.show();
+//                        //Toast.makeText(MainActivity.this, "spinning poinr is less than 5", Toast.LENGTH_SHORT).show();
+//                    
+
+////////////
+
+
+
+
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setTitle(Html.fromHtml("<font color='#FF7F27'>This is a test</font>"));
+    builder.setPositiveButton(Html.fromHtml("<font color='#FF7F27'>Yes</font>"), new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int arg1) {
+            Log.e(LOG_TAG, "Yes");
+        }
+    });
+    builder.setNegativeButton(Html.fromHtml("<font color='#FF7F27'>No</font>"), new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int arg1) {
+            Log.e(LOG_TAG, "No");
+        }
+    });
+    builder.create();
+    builder.show();

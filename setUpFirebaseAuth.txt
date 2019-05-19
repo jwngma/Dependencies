@@ -1,0 +1,43 @@
+setUpFirebaseAuth()
+
+
+
+private void checkCurrentUser(FirebaseUser user) {
+        if (user == null) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void setUpFirebaseAuth() {
+        mAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                checkCurrentUser(user);
+                if (user == null) {
+                    Log.d(TAG, "onAuthStateChanged: user is null");
+
+                } else {
+                    Log.d(TAG, "onAuthStateChanged: user is not null"+mAuth.getCurrentUser().getUid());
+
+                }
+            }
+        };
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (authStateListener!=null){
+            mAuth.removeAuthStateListener(authStateListener);
+
+        }
+    }

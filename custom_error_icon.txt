@@ -1,0 +1,8 @@
+Drawable customErrorIcon=getResources().getDrawable(R.drawable.error_icon);
+        customErrorIcon.setBounds(0,0,customErrorIcon.getIntrinsicWidth(),customErrorIcon.getIntrinsicHeight());
+
+
+
+
+/// this is the way of using it
+edittext.setError("ljdcbksbdkh",customErrorIcon);

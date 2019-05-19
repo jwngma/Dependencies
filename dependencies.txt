@@ -1,0 +1,46 @@
+	implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-auth:16.0.3'
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.google.firebase:firebase-storage:16.0.1'
+    implementation 'com.android.support:design:28.0.0'
+
+	//
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
+ implementation 'com.tapadoo.android:alerter:2.0.4'
+implementation 'com.tapadoo.android:alerter:2.0.4'
+
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //Alerter
+    implementation 'com.tapadoo.android:alerter:2.0.4'
+
+    //retro
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+ implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+/// the art of
+<activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+  android:theme="@style/Base.Theme.AppCompat"/> <!-- optional (needed if default theme has no action bar) -->
+
+
+///room persistence
+implementation 'android.arch.persistence.room:runtime:2.1.0-alpha07'
+    annotationProcessor 'android.arch.persistence.room:compiler:2.1.0-alpha07'
+
+
+   ///////////////////////////////////////////////////////// DEPENDENCIES REQUIRED FOR APP USING GOOGLE MAP
+    <uses-
+    permission android:name="android.permission.INTERNET"/>
+    <uses-
+    permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-
+    permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-
+    permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-
+    permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>

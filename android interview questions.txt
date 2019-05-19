@@ -1,0 +1,12 @@
+class
+onject
+enca[tulation,
+abstaraction,
+polymorphism,
+inheritance,
+android life cycle, 
+bundle,
+sharepreference,
+Hashset and hasmapping
+Arraylist,
+List

@@ -1,0 +1,4 @@
+   View navView = navigation.inflateHeaderView(R.layout.header_layout);
+        header_profile_image=navView.findViewById(R.id.profile_image);
+        header_profile_email=navView.findViewById(R.id.profile_email);
+        header_profile_name=navView.findViewById(R.id.profile_name);

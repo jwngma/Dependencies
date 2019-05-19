@@ -1,0 +1,19 @@
+feedback_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Alerter.create(RatingActivity.this)
+                        .setTitle("FeedBack!!!")
+                        .setText("Thank you for rating us with " + star)
+                        .setBackgroundColorRes(R.color.colorPrimary)
+                        .enableSwipeToDismiss()
+                        .setDuration(500)
+                        /*.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(RatingActivity.this, "Thank you for rating us with " + star, Toast.LENGTH_SHORT).show();
+                            }
+                        })*/
+                        .show();
+
+            }
+        });

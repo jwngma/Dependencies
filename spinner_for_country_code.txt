@@ -1,0 +1,21 @@
+ 
+public class CountryData {
+
+    public static final String[] countryNames = {
+            "India", "Pakisthan", "Bhutan", "London", "Thailand"
+    };
+
+    public static final String[] country_codes = {
+            "91", "23", "44", "45", "98"
+    };
+
+
+
+
+	spinnerCountries = findViewById(R.id.spinner_countries);
+        spinnerCountries.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+        
+
+//
+  String code = CountryData.country_codes[spinnerCountries.getSelectedItemPosition()];
+                String number = edt_mobile.getText().toString().trim();

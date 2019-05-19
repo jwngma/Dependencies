@@ -1,0 +1,80 @@
+FirebaseRecyclerOptions<GroupsModel> options;
+    FirebaseRecyclerAdapter<GroupsModel, GroupsViewHolder> adapter;
+ private RecyclerView main_recyclerview;
+
+//
+ private void initRecyclerview() {
+
+        main_recyclerview = findViewById(R.id.groups_recy);
+        main_recyclerview.setHasFixedSize(true);
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+        main_recyclerview.setLayoutManager(layoutManager);
+
+        options = new FirebaseRecyclerOptions.Builder<GroupsModel>()
+                .setQuery(GroupsRef, GroupsModel.class)
+                .build();
+        adapter = new FirebaseRecyclerAdapter<GroupsModel, GroupsViewHolder>(options
+        ) {
+            @Override
+            protected void onBindViewHolder(@NonNull GroupsViewHolder holder, int position, @NonNull GroupsModel model) {
+
+                final String ref = getRef(position).getKey();
+                Log.d(TAG, "onBindViewHolder: key" + ref);
+                holder.setImage(getApplicationContext(), model.getImage());
+                Log.d(TAG, "onBindViewHolder: image" + model.getImage());
+                holder.setTitle(model.getTitle());
+                Log.d(TAG, "onBindViewHolder: title" + model.getTitle());
+                holder.setLink(model.getLink());
+                Log.d(TAG, "onBindViewHolder: link" + model.getLink());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent= new Intent(MainActivity.this,GroupClickActivity.class);
+                        intent.putExtra("ref",ref);
+                        startActivity(intent);
+                    }
+                });
+
+
+            }
+
+            @NonNull
+            @Override
+            public GroupsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.single_group_layout, viewGroup, false);
+
+                return new GroupsViewHolder(view);
+            }
+        };
+        main_recyclerview.setAdapter(adapter);
+    }
+
+
+//
+
+
+
+
+
+
+
+ @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.startListening();
+    }
